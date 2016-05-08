@@ -1,0 +1,40 @@
+header .container{
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+header{
+  background: black;
+}
+
+section{
+  padding-top: 10px;
+  background: black;
+}
+
+.background{
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  background-size: cover;
+  position: fixed;
+  top: 100px;
+  bottom:0;
+  left: 0;
+  right: 0;
+}
+
+table, table > thead, table > thead > tr, table > thead > tr > th, table > tbody, table > tbody > tr, table > tbody > tr > td{
+  border-color:white !important;
+  color: white !important;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: red !important;
+  opacity: 0.5;
+}
+
+.btn-info{
+  padding: 1px 6px;
+  border-width: 0;
+}

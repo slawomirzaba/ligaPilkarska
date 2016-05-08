@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from main.views.Home import Home
+from main.views.Calendar import Calendar
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
+    url(r'^table$', Home.as_view(), name='home'),
+    url(r'^calendar$', Calendar.as_view(), name='calendar'),
 ]

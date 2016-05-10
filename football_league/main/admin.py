@@ -37,6 +37,17 @@ class EventAdmin(admin.ModelAdmin):
     def get_game(self, obj):
         return "{0} : {1} - {2}".format(obj.game.number_of_queue, obj.game.host.name, obj.game.guest.name)
 
+class Roles_in_gameAdmin(admin.ModelAdmin):
+    model = Roles_in_game
+    list_display = ['role']
+
+class Member_of_gameAdmin(admin.ModelAdmin):
+    model = Member_of_game
+    form = Member_of_gameForm
+    list_display = ['get_member', 'since', 'to']
+
+    def get_member(self, obj):
+        return obj.member.name + " " + obj.member.surname
 
 admin.site.register(Club, ClubAdmin)
 admin.site.register(Game, GameAdmin)
@@ -47,6 +58,6 @@ admin.site.register(Transfer)
 admin.site.register(Subcategorys_of_work)
 admin.site.register(Types_of_work)
 admin.site.register(Persons_history)
-admin.site.register(Roles_in_game)
-admin.site.register(Member_of_game)
+admin.site.register(Roles_in_game, Roles_in_gameAdmin)
+admin.site.register(Member_of_game, Member_of_gameAdmin)
 # Register your models here.

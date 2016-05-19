@@ -17,10 +17,16 @@ from django.conf.urls import url
 from django.contrib import admin
 from main.views.Home import Home
 from main.views.Calendar import Calendar
+from main.views.Tables_management import Tables_management
+from main.views.Tables_management_clubs import Tables_management_clubs
+from main.views.Tables_management_clubs_add import Tables_management_clubs_add
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
     url(r'^table$', Home.as_view(), name='home'),
     url(r'^calendar$', Calendar.as_view(), name='calendar'),
+    url(r'^tables_management_clubs$', Tables_management_clubs.as_view(), name='tables_management_clubs)'),
+    url(r'^tables_management$', Tables_management.as_view(), name='tables_management'),
+    url(r'^tables_management_clubs_add', Tables_management_clubs_add.as_view(), name='tables_management_clubs_add'),
 ]

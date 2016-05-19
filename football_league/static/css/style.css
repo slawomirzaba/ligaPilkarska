@@ -34,7 +34,7 @@ table, table > thead, table > thead > tr, table > thead > tr > th, table > tbody
   opacity: 0.5;
 }
 
-.btn-info{
+.btn-info, .btn-warning, .btn-danger{
   padding: 1px 6px;
   border-width: 0;
 }

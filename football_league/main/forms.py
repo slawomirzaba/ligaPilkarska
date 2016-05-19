@@ -1,5 +1,6 @@
 from django import forms
 from main.models import *
+from django.forms.extras.widgets import SelectDateWidget
 
 class customMultipleGamesChoiceField(forms.ModelMultipleChoiceField):
     def label_from_instance(self, obj):
@@ -55,3 +56,12 @@ class Member_of_gameForm(forms.ModelForm):
     class Meta:
         model = Member_of_game
         fields = '__all__'
+
+class ClubForm(forms.ModelForm):
+    name = forms.CharField(max_length=45, min_length=6, strip=True, label='Nazwa')
+    creation_date = forms.DateField(input_formats=None, label='Data powstania', widget = SelectDateWidget)
+    location = forms.CharField(max_length=45, min_length=6, strip=True, label='Miejscowosc')
+
+    class Meta:
+        model = Club
+        fields = "__all__"

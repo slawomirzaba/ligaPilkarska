@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from main.models import *
 from main.forms import ClubForm
@@ -13,6 +13,6 @@ class Tables_management_clubs_add(View):
 		form = ClubForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return render(request, 'main/tables_management_clubs.html', {'clubs':Club.objects.all()})
+			return redirect("tables_management_clubs")
 		else:
 			return render(request, 'main/tables_management_clubs_add.html', {'form': form})

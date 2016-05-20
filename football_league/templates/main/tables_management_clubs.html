@@ -20,8 +20,8 @@
           <tr>
             <th>lp.</th>
             <th>Nazwa drużyny</th>
-            <th>lokalizacja</th>
-            <th>rok powstania</th>
+            <th>Lokalizacja</th>
+            <th>Rok powstania</th>
             <th></th>
             <th></th>
           </tr>
@@ -33,8 +33,13 @@
               <td>{{club.name}}</td>
               <td>{{club.location}}</td>
               <td>{{club.creation_date}}</td>
-              <td><a href="#" class="btn btn-info">Edytuj</a></td>
-              <td><a href="#" class="btn btn-danger">Usuń</a></td>
+              <td><a href="/tables_management_clubs_edit/{{club.id}}/" class="btn btn-info">Edytuj</a></td>
+              <td>
+                  <form action="/tables_management_clubs_delete/{{club.id}}/" method="post">
+                      {% csrf_token %}
+                      <a href="#" class="btn btn-danger" onclick="this.parentNode.submit()">Usuń</a>
+                  </form>
+              </td>
             </tr>
           {% endfor %}
         </tbody>

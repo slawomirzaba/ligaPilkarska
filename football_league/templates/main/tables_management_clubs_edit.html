@@ -2,11 +2,12 @@
 {% block title %} Tabela drużyn {% endblock %}
 
 {%block content %}
-    <section id="form">
-        <form action="" method="post">
+    <section>
+        <form action="" method="post" id="form">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Submit" />
         </form>
+        <a class="btn btn-primary back" href="/tables_management_clubs">Powróć do poprzedniej strony</a>
     </section>
 {% endblock %}

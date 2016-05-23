@@ -36,6 +36,8 @@ class PersonForm(forms.ModelForm):
 class GameForm(forms.ModelForm):
     host = CustomClubChoiceField(queryset=Club.objects.all())
     guest = CustomClubChoiceField(queryset=Club.objects.all())
+    date = forms.DateField(input_formats=None, label='Data',
+                                    widget=SelectDateWidget(years=[y for y in range(1930, 2017)]))
 
     class Meta:
         model = Game

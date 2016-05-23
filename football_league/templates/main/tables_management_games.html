@@ -35,13 +35,18 @@
                 <td>{{game.date}}</td>
               <td>{{game.host.name}}</td>
               <td>{{game.guest.name}}</td>
-              <td><a href="#" class="btn btn-info">Edytuj</a></td>
-              <td><a href="#" class="btn btn-danger">Usuń</a></td>
+              <td><a href="/tables_management_games_edit/{{game.id}}/" class="btn btn-info">Edytuj</a></td>
+              <td>
+                  <form action="/tables_management_games_delete/{{game.id}}/" method="post">
+                      {% csrf_token %}
+                      <a href="#" class="btn btn-danger" onclick="this.parentNode.submit()">Usuń</a>
+                  </form>
+              </td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
-      <a href="#" class="btn btn-warning">Dodaj mecz</a>
+      <a href="/tables_management_games_add" class="btn btn-warning">Dodaj mecz</a>
     </div>
     <a class="btn btn-primary back" href="/tables_management">Powróć do poprzedniej strony</a>
 </section>

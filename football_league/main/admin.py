@@ -44,7 +44,7 @@ class Roles_in_gameAdmin(admin.ModelAdmin):
 class Member_of_gameAdmin(admin.ModelAdmin):
     model = Member_of_game
     form = Member_of_gameForm
-    list_display = ['get_member', 'since', 'to']
+    list_display = ['get_member']
 
     def get_member(self, obj):
         return obj.member.name + " " + obj.member.surname

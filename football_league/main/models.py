@@ -62,8 +62,6 @@ class Roles_in_game(models.Model):
 
 class Member_of_game(models.Model):
     id = models.AutoField(primary_key = True, unique = True)
-    since = models.IntegerField()
-    to = models.IntegerField()
     member = models.ForeignKey(Person)
     games = models.ManyToManyField(Game)
     roles = models.ManyToManyField(Roles_in_game)

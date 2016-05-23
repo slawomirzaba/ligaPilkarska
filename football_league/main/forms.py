@@ -59,7 +59,7 @@ class Member_of_gameForm(forms.ModelForm):
 
 class ClubForm(forms.ModelForm):
     name = forms.CharField(max_length=45, min_length=6, strip=True, label='Nazwa')
-    creation_date = forms.DateField(input_formats=None, label='Data powstania', widget = SelectDateWidget)
+    creation_date = forms.DateField(input_formats=None, label='Data powstania', widget = SelectDateWidget(years=[y for y in range(1930,2017)]))
     location = forms.CharField(max_length=45, min_length=6, strip=True, label='Miejscowosc')
 
     class Meta:

@@ -38,3 +38,23 @@ table, table > thead, table > thead > tr, table > thead > tr > th, table > tbody
   padding: 1px 6px;
   border-width: 0;
 }
+
+form > p > label {
+    color: white;
+}
+
+#form{
+    top: 200px;
+    position: relative;
+    left: 40%;
+}
+
+ul.errorlist {
+    color: red;
+}
+
+.back{
+    bottom:0;
+    left:0;
+    position:fixed;
+}

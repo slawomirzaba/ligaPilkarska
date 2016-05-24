@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+{% block title %} Tabela drużyn {% endblock %}
+
+{%block content %}
+    <section>
+        <form action="/tables_management_games_add" method="post" id="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+        <a class="btn btn-primary back" href="/tables_management_games">Powróć do poprzedniej strony</a>
+    </section>
+{% endblock %}

@@ -23,6 +23,13 @@ from main.views.Tables_management_clubs_add import Tables_management_clubs_add
 from main.views.Tables_management_clubs_edit import Tables_management_clubs_edit
 from main.views.Tables_management_clubs_delete import Tables_management_clubs_delete
 from main.views.Tables_management_games import Tables_management_games
+from main.views.Tables_management_games_add import Tables_management_games_add
+from main.views.Tables_management_games_edit import Tables_management_games_edit
+from main.views.Tables_management_games_delete import Tables_management_games_delete
+from main.views.Tables_management_members import Tables_management_members
+from main.views.Tables_management_members_add import Tables_management_members_add
+from main.views.Tables_management_members_edit import Tables_management_members_edit
+from main.views.Tables_management_members_delete import Tables_management_members_delete
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,5 +42,11 @@ urlpatterns = [
     url(r'^tables_management_clubs_edit/(?P<id>\d+)/$', Tables_management_clubs_edit.as_view(), name='tables_management_clubs_edit'),
     url(r'^tables_management_clubs_delete/(?P<id>\d+)/$', Tables_management_clubs_delete.as_view(), name='tables_management_clubs_delete'),
     url(r'^tables_management_games$', Tables_management_games.as_view(), name='tables_management_games'),
-
+    url(r'^tables_management_games_add', Tables_management_games_add.as_view(), name='tables_management_games_add'),
+    url(r'^tables_management_games_edit/(?P<id>\d+)/$', Tables_management_games_edit.as_view(), name='tables_management_games_edit'),
+    url(r'^tables_management_games_delete/(?P<id>\d+)/$', Tables_management_games_delete.as_view(), name='tables_management_games_delete'),
+    url(r'^tables_management_members$', Tables_management_members.as_view(), name='tables_management_members'),
+    url(r'^tables_management_members_add', Tables_management_members_add.as_view(), name='tables_management_members_add'),
+    url(r'^tables_management_members_edit/(?P<id>\d+)/$', Tables_management_members_edit.as_view(), name='tables_management_members_edit'),
+    url(r'^tables_management_members_delete/(?P<id>\d+)/$', Tables_management_members_delete.as_view(), name='tables_management_members_delete'),
 ]

@@ -1,0 +1,58 @@
+{% extends "main/base.html" %}
+{% block title %} Terminarz {% endblock %}
+
+{%block content %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name">Zawodnicy meczu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="teamsTable">
+    <div class="container">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th style = "width:33.3%"> {{ host_name }} </th>
+            <th style = "width:33.3%">Imię</th>
+            <th style = "width:33.3%">nazwisko</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for member in host_members %}
+          <tr>
+              <td> {{ forloop.counter }} </td>
+            <td> {{ member.member.name }} </td>
+            <td> {{ member.member.surname }} </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+        <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th style = "width:33.3%"> {{ guest_name }} </th>
+            <th style = "width:33.3%">Imię</th>
+            <th style = "width:33.3%">nazwisko</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for member in guest_members %}
+          <tr>
+              <td> {{ forloop.counter }} </td>
+            <td> {{ member.member.name }} </td>
+            <td> {{ member.member.surname }} </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <a class="btn btn-primary back" href="/calendar">Powróć do poprzedniej strony</a>
+</section>
+
+{% endblock %}

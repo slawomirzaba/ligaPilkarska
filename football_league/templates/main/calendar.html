@@ -35,7 +35,7 @@
             <td> {{ result.guest_name }} </td>
             <td>{{ result.host_goals}} - {{ result.guest_goals }}</td>
             <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
+              <a href="/calendar_details/{{result.id}}/" class="btn btn-info">Uczestnicy meczu</a>
             </td>
           </tr>
         {% endfor %}

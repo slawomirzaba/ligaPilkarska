@@ -20,6 +20,8 @@ class Game_details:
         self.guest_name = ""
         self.host_goals = 0
         self.guest_goals = 0
+        self.data = ""
+        self.id = 0
 
 class Home(View):
     def get(self, request):
@@ -30,7 +32,8 @@ class Home(View):
         club_table_results = []
         for game in games:
             tmp = Game_details()
-            print game.host.name + " " + game.guest.name
+            tmp.id = game.id
+            tmp.data = game.date
             tmp.queue = game.number_of_queue
             tmp.host_name = game.host.name
             tmp.guest_name = game.guest.name

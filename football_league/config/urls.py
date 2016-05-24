@@ -30,6 +30,7 @@ from main.views.Tables_management_members import Tables_management_members
 from main.views.Tables_management_members_add import Tables_management_members_add
 from main.views.Tables_management_members_edit import Tables_management_members_edit
 from main.views.Tables_management_members_delete import Tables_management_members_delete
+from main.views.Calendar_details import Calendar_details
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -49,4 +50,5 @@ urlpatterns = [
     url(r'^tables_management_members_edit/(?P<id>\d+)/$', Tables_management_members_edit.as_view(), name='tables_management_members_edit'),
     url(r'^tables_management_members_delete/(?P<id>\d+)/$', Tables_management_members_delete.as_view(), name='tables_management_members_delete'),
     url(r'^table', Home.as_view(), name='home'),
+    url(r'^calendar_details/(?P<game_id>\d+)/$', Calendar_details.as_view(), name='calendar_details')
 ]

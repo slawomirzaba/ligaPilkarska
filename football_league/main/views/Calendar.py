@@ -1,17 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from main.models import *
-
-
-class Game_details:
-    def __init__(self):
-        self.queue = 0
-        self.host_name = ""
-        self.guest_name = ""
-        self.host_goals = 0
-        self.guest_goals = 0
-        self.data = ""
-
+from main.views.Home import Game_details
 
 class Calendar(View):
     def get(self, request):
@@ -20,6 +10,7 @@ class Calendar(View):
         results = []
         for game in games:
             tmp = Game_details()
+            tmp.id = game.id
             tmp.data = game.date
             tmp.queue = game.number_of_queue
             tmp.host_name = game.host.name

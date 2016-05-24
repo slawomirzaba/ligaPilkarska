@@ -27,66 +27,18 @@
           </tr>
         </thead>
         <tbody>
+        {% for result in results %}
           <tr>
-            <td>1</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
+            <td> {{ forloop.counter }} </td>
+            <td> {{ result.data }} </td>
+            <td> {{ result.host_name }} </td>
+            <td> {{ result.guest_name }} </td>
+            <td>{{ result.host_goals}} - {{ result.guest_goals }}</td>
             <td>
               <button class="btn btn-info"> Szczegóły meczu</button>
             </td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
-            <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
-            <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
-            <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
-            <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>24-09-2016</td>
-            <td>Slask Wroclaw</td>
-            <td>Legia Warszawa</td>
-            <td>2 : 1</td>
-            <td>
-              <button class="btn btn-info"> Szczegóły meczu</button>
-            </td>
-          </tr>
+        {% endfor %}
         </tbody>
       </table>
     </div>

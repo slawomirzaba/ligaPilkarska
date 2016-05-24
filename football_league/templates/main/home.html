@@ -30,85 +30,27 @@
           </tr>
         </thead>
         <tbody>
+          {% for result in club_table_results %}
           <tr>
-            <td>1</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
+            <td> {{ forloop.counter }} </td>
+            <td> {{ result.club_name }} </td>
+            <td> {{ result.games }} </td>
+            <td> {{ result.points}} </td>
+            <td> {{ result.wins }} </td>
+            <td> {{ result.draws }} </td>
+            <td> {{ result.loses }} </td>
+            <td> {{ result.goals_scored }} </td>
+            <td> {{ result.goals_lost }} </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Slask wroclaw</td>
-            <td>10</td>
-            <td>26</td>
-            <td>8</td>
-            <td>2</td>
-            <td>1</td>
-            <td>22</td>
-            <td>4</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
+      <a href="/table/?sortType=points&sortReverse=True" class="btn btn-info">punkty malejąco</a>
+      <a href="/table/?sortType=points&sortReverse=False" class="btn btn-warning">punkty rosnaco</a>
+      <a href="/table/?sortType=goals_scored&sortReverse=True" class="btn btn-info">gole zdobyte malejąco</a>
+      <a href="/table/?sortType=goals_scored&sortReverse=False" class="btn btn-warning">gole zdobyte rosnąco</a>
+      <a href="/table/?sortType=goals_lost&sortReverse=True" class="btn btn-info">gole stracone malejąco</a>
+      <a href="/table/?sortType=goals_lost&sortReverse=False" class="btn btn-warning">gole stracone rosnaco</a>
     </div>
 </section>
 

@@ -34,7 +34,6 @@ from main.views.Tables_management_members_delete import Tables_management_member
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name='home'),
-    url(r'^table$', Home.as_view(), name='home'),
     url(r'^calendar$', Calendar.as_view(), name='calendar'),
     url(r'^tables_management$', Tables_management.as_view(), name='tables_management'),
     url(r'^tables_management_clubs$', Tables_management_clubs.as_view(), name='tables_management_clubs'),
@@ -49,4 +48,5 @@ urlpatterns = [
     url(r'^tables_management_members_add', Tables_management_members_add.as_view(), name='tables_management_members_add'),
     url(r'^tables_management_members_edit/(?P<id>\d+)/$', Tables_management_members_edit.as_view(), name='tables_management_members_edit'),
     url(r'^tables_management_members_delete/(?P<id>\d+)/$', Tables_management_members_delete.as_view(), name='tables_management_members_delete'),
+    url(r'^table', Home.as_view(), name='home'),
 ]

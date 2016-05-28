@@ -8,6 +8,9 @@
             {{ form.as_p }}
             <input type="submit" value="Submit" />
         </form>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
         <a class="btn btn-primary back" href="/tables_management_members">Powróć do poprzedniej strony</a>
     </section>
 {% endblock %}

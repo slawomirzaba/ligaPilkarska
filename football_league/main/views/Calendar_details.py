@@ -11,12 +11,12 @@ class Calendar_details(View):
         game = Game.objects.get(id=game_id)
         host_name = game.host.name
         guest_name = game.guest.name
-
+        role = Roles_in_game.objects.get(role='Pilkarz')
         for member in members:
             if game in member.games.all():
-                if host_name == member.member.club.name:
+                if host_name == member.member.club.name and role in member.roles.all():
                     host_members.append(member)
-                elif guest_name == member.member.club.name:
+                elif guest_name == member.member.club.name and role in member.roles.all():
                     guest_members.append(member)
 
         return render(request, 'main/calendar_details.html',

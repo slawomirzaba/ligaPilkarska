@@ -58,3 +58,10 @@ ul.errorlist {
     left:0;
     position:fixed;
 }
+
+.error{
+    position: fixed;
+    color: red;
+    left: 38%;
+    top: 130px;
+}

@@ -8,5 +8,7 @@ class Tables_management_members(View):
 		members = Member_of_game.objects.all()
 
 		if search_query:
-			members = Member_of_game.objects.filter(member__surname__contains=search_query)
+			members = Member_of_game.objects.filter(member__surname__icontains=search_query) \
+					  | Member_of_game.objects.filter(member__name__icontains=search_query)
+
 		return render(request, 'main/tables_management_members.html', {'members': members})

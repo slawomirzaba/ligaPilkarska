@@ -6,7 +6,7 @@
         <form action="/tables_management_members_add" method="post" id="form">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Zatwierdz" />
         </form>
         {% if error %}
             <p class="error">{{ error }}</p>

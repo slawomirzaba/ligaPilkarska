@@ -7,7 +7,7 @@ header{
   background: black;
 }
 
-section{
+section#teamsTable {
   padding-top: 10px;
   background: black;
 }
@@ -24,12 +24,13 @@ section{
   right: 0;
 }
 
-table, table > thead, table > thead > tr, table > thead > tr > th, table > tbody, table > tbody > tr, table > tbody > tr > td{
+#teamsTable table, #teamsTable table > thead, #teamsTable table > thead > tr, #teamsTable table > thead > tr > th, #teamsTable table > tbody,
+#teamsTable table > tbody > tr, #teamsTable table > tbody > tr > td{
   border-color:white !important;
   color: white !important;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+#teamsTable .table-hover tbody tr:hover td, #teamsTable  .table-hover tbody tr:hover th {
   background-color: red !important;
   opacity: 0.5;
 }
@@ -64,4 +65,9 @@ ul.errorlist {
     color: red;
     left: 38%;
     top: 130px;
+}
+.input-group.date{
+    width:20%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }

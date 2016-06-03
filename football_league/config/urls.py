@@ -50,5 +50,5 @@ urlpatterns = [
     url(r'^tables_management_members_edit/(?P<id>\d+)/$', Tables_management_members_edit.as_view(), name='tables_management_members_edit'),
     url(r'^tables_management_members_delete/(?P<id>\d+)/$', Tables_management_members_delete.as_view(), name='tables_management_members_delete'),
     url(r'^table', Home.as_view(), name='home'),
-    url(r'^calendar_details/(?P<game_id>\d+)/$', Calendar_details.as_view(), name='calendar_details')
+    url(r'^calendar_details/(?P<game_id>\d+)/$', Calendar_details.as_view(), name='calendar_details'),
 ]

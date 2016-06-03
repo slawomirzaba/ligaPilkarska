@@ -2,6 +2,7 @@ from django import forms
 from django.utils import timezone
 from main.models import *
 from django.forms.extras.widgets import SelectDateWidget
+from datetimewidget.widgets import DateTimeWidget
 
 class customMultipleGamesChoiceField(forms.ModelMultipleChoiceField):
     def label_from_instance(self, obj):
@@ -35,34 +36,33 @@ class PersonForm(forms.ModelForm):
         fields = '__all__'
 
 class GameForm(forms.ModelForm):
-    host = CustomClubChoiceField(queryset=Club.objects.order_by('name'))
-    guest = CustomClubChoiceField(queryset=Club.objects.order_by('name'))
-    date = forms.DateField(input_formats=None, label='Data',
-                                    widget=SelectDateWidget(years=[y for y in range(2015, 2017)]), initial=timezone.now())
-
+    host = CustomClubChoiceField(queryset=Club.objects.order_by('name'), label="Gospodarz")
+    guest = CustomClubChoiceField(queryset=Club.objects.order_by('name'), label="Gosc")
+    date = forms.DateTimeField(widget=DateTimeWidget(usel10n=True, bootstrap_version=3), label = "Data")
+    number_of_queue = forms.IntegerField(label = "Numer kolejki")
     class Meta:
         model = Game
         fields = '__all__'
 
 class EventForm(forms.ModelForm):
-    type = CustomEventTypeChoiceField(queryset=Types_of_event.objects.all())
-    person = CustomPersonChoiceField(queryset=Person.objects.order_by('surname'))
-    game = CustomGameChoiceField(queryset=Game.objects.order_by('number_of_queue'))
+    type = CustomEventTypeChoiceField(queryset=Types_of_event.objects.all(), label="Typ")
+    person = CustomPersonChoiceField(queryset=Person.objects.order_by('surname'), label="Osoba")
+    game = CustomGameChoiceField(queryset=Game.objects.order_by('number_of_queue'), label="Mecz")
     class Meta:
         model = Event
         fields = '__all__'
 
 class Member_of_gameForm(forms.ModelForm):
-    member = CustomPersonChoiceField(queryset=Person.objects.order_by('surname'))
-    games = customMultipleGamesChoiceField(queryset=Game.objects.order_by('number_of_queue'), widget=forms.CheckboxSelectMultiple)
-    roles = customMultipleRolesChoiceField(queryset=Roles_in_game.objects.all(), widget=forms.CheckboxSelectMultiple)
+    member = CustomPersonChoiceField(queryset=Person.objects.order_by('surname'), label='Uczestnik')
+    games = customMultipleGamesChoiceField(queryset=Game.objects.order_by('number_of_queue'), widget=forms.CheckboxSelectMultiple, label='Mecze')
+    roles = customMultipleRolesChoiceField(queryset=Roles_in_game.objects.all(), widget=forms.CheckboxSelectMultiple, label='Role')
     class Meta:
         model = Member_of_game
         fields = '__all__'
 
 class Member_of_game_edit_Form(forms.ModelForm):
-    games = customMultipleGamesChoiceField(queryset=Game.objects.order_by('number_of_queue'), widget=forms.CheckboxSelectMultiple)
-    roles = customMultipleRolesChoiceField(queryset=Roles_in_game.objects.all(), widget=forms.CheckboxSelectMultiple)
+    games = customMultipleGamesChoiceField(queryset=Game.objects.order_by('number_of_queue'), widget=forms.CheckboxSelectMultiple, label='Mecze')
+    roles = customMultipleRolesChoiceField(queryset=Roles_in_game.objects.all(), widget=forms.CheckboxSelectMultiple, label='Role')
     class Meta:
         model = Member_of_game
         fields = ('games', 'roles')

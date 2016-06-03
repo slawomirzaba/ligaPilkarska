@@ -4,10 +4,11 @@
 {%block content %}
     <section>
         <form action="" method="post" id="form">
-            <input type="text" disabled value = "{{member.member.name}} {{member.member.surname}}">
+            <label for="id_member" style="color:white">Uczestnik:</label>
+            <input type="text" id="id_member" name="member" disabled value="{{my_member.member.surname}} {{my_member.member.name}}">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Zatwierdz" />
         </form>
         {% if error %}
             <p class="error">{{ error }}</p>

@@ -27,7 +27,7 @@ class Home(View):
     def get(self, request):
         clubs = Club.objects.all()
         games = Game.objects.all()
-        events = Event.objects.all()
+        goal_events = Event.objects.filter(type__type__icontains="Gol")
         results = []
         club_table_results = []
         for game in games:
@@ -37,11 +37,11 @@ class Home(View):
             tmp.queue = game.number_of_queue
             tmp.host_name = game.host.name
             tmp.guest_name = game.guest.name
-            for event in events:
-                if event.type.type == 'Gol' and event.person.club.name == tmp.host_name \
+            for event in goal_events:
+                if event.person.club.name == tmp.host_name \
                         and event.game.host.name == tmp.host_name and event.game.guest.name == tmp.guest_name:
                     tmp.host_goals += 1
-                elif event.type.type == 'Gol' and event.person.club.name == tmp.guest_name \
+                elif event.person.club.name == tmp.guest_name \
                         and event.game.host.name == tmp.host_name and event.game.guest.name == tmp.guest_name:
                     tmp.guest_goals += 1
             results.append(tmp)

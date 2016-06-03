@@ -59,6 +59,13 @@ class Member_of_gameForm(forms.ModelForm):
         model = Member_of_game
         fields = '__all__'
 
+class Member_of_game_edit_Form(forms.ModelForm):
+    games = customMultipleGamesChoiceField(queryset=Game.objects.all(), widget=forms.CheckboxSelectMultiple)
+    roles = customMultipleRolesChoiceField(queryset=Roles_in_game.objects.all(), widget=forms.CheckboxSelectMultiple)
+    class Meta:
+        model = Member_of_game
+        fields = ('games', 'roles')
+
 class ClubForm(forms.ModelForm):
     name = forms.CharField(max_length=45, min_length=6, strip=True, label='Nazwa')
     creation_date = forms.DateField(input_formats=None, label='Data powstania',

@@ -7,8 +7,9 @@ class Calendar_details(View):
     def get(self, request, game_id):
         host_members = []
         guest_members = []
-        members = Member_of_game.objects.all()
         game = Game.objects.get(id=game_id)
+        members = Member_of_game.objects.filter(member__club__id=game.host.id) \
+					  | Member_of_game.objects.filter(member__club__id=game.guest.id)
         host_name = game.host.name
         guest_name = game.guest.name
         role = Roles_in_game.objects.get(role='Pilkarz')
